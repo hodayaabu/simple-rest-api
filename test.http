@@ -1,0 +1,68 @@
+@local = http://localhost:3003
+
+# Add new user:
+POST {{local}}/users
+Content-Type: application/json
+
+{
+    "name": "ariel",
+    "email": "ariel@gmail.com",
+    "password": "12345678910",
+    "biz": true
+}
+
+
+### Auth user
+POST {{local}}/auth
+Content-Type: application/json
+
+{
+    "email": "ariel@gmail.com",
+    "password": "12345678910"
+}
+
+
+### Get user by token
+GET {{local}}/users/me 
+x-user-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQwYTY3MjEyOTI5MDZlYTMyODlkOWEiLCJiaXoiOnRydWUsImlhdCI6MTY0MTA2NDA1M30.DEKPPTCF46VTxN8Ct9CQbwq7W6BdxAYYRQYT5boAheo
+
+
+### Add new card
+POST {{local}}/cards
+x-user-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQwYTY3MjEyOTI5MDZlYTMyODlkOWEiLCJiaXoiOnRydWUsImlhdCI6MTY0MTA2NDA1M30.DEKPPTCF46VTxN8Ct9CQbwq7W6BdxAYYRQYT5boAheo
+Content-Type: application/json
+
+{
+ "bizName": "Avigail`s shop",
+ "bizAddress": "tel aviv",
+ "bizPhone": "025856101",
+ "bizDescription": "Avigail`s shope is the best shop in all tel aviv, you should come"
+}
+
+
+### Get card by id
+GET {{local}}/cards/61d0a7161292906ea3289d9e
+x-user-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQwYTY3MjEyOTI5MDZlYTMyODlkOWEiLCJiaXoiOnRydWUsImlhdCI6MTY0MTA2NDA1M30.DEKPPTCF46VTxN8Ct9CQbwq7W6BdxAYYRQYT5boAheo
+
+
+### Update card by id
+PUT {{local}}/cards/61d0a7161292906ea3289d9e
+x-user-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQwYTY3MjEyOTI5MDZlYTMyODlkOWEiLCJiaXoiOnRydWUsImlhdCI6MTY0MTA2NDA1M30.DEKPPTCF46VTxN8Ct9CQbwq7W6BdxAYYRQYT5boAheo
+Content-Type: application/json
+
+{
+ "bizName": "Ariel`s shop",
+  "bizAddress": "tel aviv",
+ "bizPhone": "037611770",
+ "bizDescription": "Ariel`s shope is the best shop in all tel aviv, you should come"
+}
+
+
+### Delete card by id
+DELETE {{local}}/cards/61d0a8381292906ea3289daa
+x-user-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQwYTY3MjEyOTI5MDZlYTMyODlkOWEiLCJiaXoiOnRydWUsImlhdCI6MTY0MTA2NDA1M30.DEKPPTCF46VTxN8Ct9CQbwq7W6BdxAYYRQYT5boAheo
+
+
+### Get user cards
+GET {{local}}/cards/myCards/61d0a6721292906ea3289d9a
+x-user-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQwYTY3MjEyOTI5MDZlYTMyODlkOWEiLCJiaXoiOnRydWUsImlhdCI6MTY0MTA2NDA1M30.DEKPPTCF46VTxN8Ct9CQbwq7W6BdxAYYRQYT5boAheo
